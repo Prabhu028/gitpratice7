@@ -1,0 +1,6 @@
+sudo apt purge jenkins -y
+sudo apt autoremove -y
+sudo rm -rf /var/lib/jenkins
+sudo rm -rf /etc/default/jenkins
+sudo rm -rf /etc/init.d/jenkins
+sudo rm -rf /etc/systemd/system/jenkins.service
