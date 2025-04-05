@@ -1,6 +1,30 @@
+sudo systemctl stop jenkins
+sudo systemctl disable jenkins
+
+
+sudo rm -rf /var/lib/jenkins
+sudo rm -rf /etc/default/jenkins
+sudo rm -rf /etc/init.d/jenkins
+sudo rm -rf /etc/systemd/system/jenkins.service
+sudo rm -rf /var/log/jenkins
+sudo rm -rf /usr/lib/jenkins
+
+
+If any of these throw "failed to remove: permission denied", then run:
+Copy
+Edit path
+sudo chmod -R 777 <path>
+Example:
+sudo chmod -R 777 /var/lib/jenkins
+sudo rm -rf /var/lib/jenkins
+
 sudo apt purge jenkins -y
 sudo apt autoremove -y
 sudo rm -rf /var/lib/jenkins
 sudo rm -rf /etc/default/jenkins
 sudo rm -rf /etc/init.d/jenkins
 sudo rm -rf /etc/systemd/system/jenkins.service
+
+sudo lsof | grep jenkins
+sudo systemctl daemon-reload
+sudo systemctl reset-failed
